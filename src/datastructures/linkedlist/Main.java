@@ -13,7 +13,10 @@ public class Main {
         System.out.println("\nLinked List:");
         myLinkedList.printList();
 
-
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        System.out.println("\nLinked List modified:");
+        myLinkedList.printList();
     }
 
 }

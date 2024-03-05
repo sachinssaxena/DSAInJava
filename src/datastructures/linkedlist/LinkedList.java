@@ -30,6 +30,19 @@ public class LinkedList {
         }
     }
 
+    public void append(int value) {
+        Node newNode = new Node(value);
+        if (this.length == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        length++;
+    }
+
     public void getHead() {
         if (head == null) {
             System.out.println("Head: null");
