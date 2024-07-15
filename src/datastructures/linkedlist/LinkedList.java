@@ -35,13 +35,55 @@ public class LinkedList {
         if (this.length == 0) {
             this.head = newNode;
             this.tail = newNode;
-        }
-        else {
+        } else {
             this.tail.next = newNode;
             this.tail = newNode;
         }
         length++;
     }
+
+    public Node removeLast() {
+        if (length == 0) return null;
+        Node temp = this.head;
+        Node pre = this.head;
+        while (temp.next != null) {
+            pre = temp;
+            temp = temp.next;
+        }
+        tail = pre;
+        tail.next = null;
+        length--;
+        if (length == 0) {
+            head = null;
+            tail = null;
+        }
+        return temp;
+    }
+
+    public void prepend(int data) {
+        Node newNode = new Node(data);
+        if (length == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        length++;
+    }
+
+    public Node removeFirst() {
+        if (length == 0) return null;
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
+        if (length == 0) {
+            tail = null;
+        }
+        return temp;
+    }
+
 
     public void getHead() {
         if (head == null) {
